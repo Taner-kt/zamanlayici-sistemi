@@ -16,7 +16,10 @@ Ebeveynlerin çocuklarının bilgisayar başında geçirdiği süreyi kontrol al
 
 ## 🚀 Kurulum ve Çalıştırma
 
-Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
+Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz: 
 
 ### 1. Gereksinimler
-Bilgisayarınızda **Python 3.x** sürümünün yüklü olduğundan emin olun.
+
+Bilgisayarınızda **Python 3.8+** sürümünün yüklü olduğundan emin olun.
+
+`pip install pystray pillow pyinstaller` kodu ile harici kütüphaneleri ekleyin.
