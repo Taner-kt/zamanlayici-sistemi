@@ -16,10 +16,11 @@ Ebeveynlerin çocuklarının bilgisayar başında geçirdiği süreyi kontrol al
 
 ## 🚀 Kurulum ve Çalıştırma
 
-Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz: 
+Projeyi yerel bilgisayarınızda çalıştırmak için [Buraya](https://github.com/Taner-kt/zamanlayici-sistemi/releases/download/v1.0.0/timer.exe) tıklayarak indirebilirsiniz!
 
 ### 1. Gereksinimler
 
 Bilgisayarınızda **Python 3.8+** sürümünün yüklü olduğundan emin olun.
 
 `pip install pystray pillow pyinstaller` kodu ile harici kütüphaneleri ekleyin.
+`python -m PyInstaller --noconsole --onefile --icon=logo.ico --add-data "logo.ico;." app.py` ile .exe oluşturabilirsiniz.
