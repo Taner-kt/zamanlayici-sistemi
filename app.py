@@ -24,11 +24,12 @@ class ZamanlayiciUygulamasi:
         
         self.root.configure(bg="#000000")
 
+        # --- İKON YÜKLEME BÖLÜMÜ ---
         try:
             ikon_yolu = kaynak_yolu("logo.ico")
             self.root.iconbitmap(default=ikon_yolu)
         except Exception as e:
-            print(f"Uyarı: İkon yüklenemedi: {e}")
+            print(f"Uyarı: İkon yüklenemedi. Lütfen 'logo.ico' dosyasının klasörde olduğundan emin olun. Hata: {e}")
 
         self.kalan_saniye = 0
         self.calisiyor = False
@@ -36,7 +37,6 @@ class ZamanlayiciUygulamasi:
         self.sayac_penceresi = None
         self.sayac_gorunur = True 
         
-        # GÜNCELLEME: Çarpı tuşuna basıldığında yeni kontrolcü fonksiyonumuz çalışacak
         self.root.protocol("WM_DELETE_WINDOW", self.kapatma_yoneticisi)
 
         # --- Arayüz Tasarımı ---
@@ -54,15 +54,12 @@ class ZamanlayiciUygulamasi:
         self.btn_iptal = tk.Button(root, text="İptal Et", width=25, command=self.iptal_et, bg="#95A5A6", fg="white", activebackground="#7F8C8D", relief="flat", disabledforeground="white")
         self.btn_kapat = tk.Button(root, text="Hemen Kapat", width=25, command=self.hemen_kapat, bg="#E74C3C", fg="white", activebackground="#C0392B", relief="flat")
 
-    # YENİ: Çarpı (X) butonuna tıklandığında ne olacağını belirleyen fonksiyon
     def kapatma_yoneticisi(self):
         if self.calisiyor:
-            # Sayaç aktifse uygulamayı arka plana (tepsiye) gizle
             self.tepsiye_gonder()
         else:
-            # Sayaç aktif değilse uygulamayı tamamen kapat
             self.root.destroy()
-            os._exit(0) # Arka planda kalıntı bırakmadan güvenli çıkış
+            os._exit(0) 
 
     def baslat(self):
         try:
@@ -189,8 +186,6 @@ class ZamanlayiciUygulamasi:
 
     def ikon_olustur(self):
         try:
-            # GÜNCELLEME: Pystray için de doğrudan logo.ico kullanıyoruz ve RGBA formatına çeviriyoruz.
-            # .convert("RGBA") komutu resmin hafızaya tam okunmasını sağlayıp görünmeme hatasını çözer.
             ikon_yolu = kaynak_yolu("logo.ico")
             image = Image.open(ikon_yolu).convert("RGBA")
             return image
@@ -219,9 +214,18 @@ class ZamanlayiciUygulamasi:
     def uygulamayi_kapat(self, icon, item):
         icon.stop()
         self.root.after(0, self.root.destroy)
-        os._exit(0) # Programın arka planda kalıntı bırakmasını engeller
+        os._exit(0) 
 
 if __name__ == "__main__":
+    # YENİ: Windows görev çubuğu ikon sorunu için AppUserModelID ayarlaması
+    try:
+        # Uygulamanıza özel benzersiz bir kimlik tanımlıyoruz
+        myappid = 'benim.zamanlayici.uygulamam.v1'
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    except Exception:
+        pass # Eğer sistem Windows değilse veya hata verirse atla
+
+    # Uygulamanın zaten açık olup olmadığını kontrol ediyoruz
     mutex_adi = "BilgisayarZamanlayici_TekGirdi_Mutex"
     mutex = ctypes.windll.kernel32.CreateMutexW(None, False, mutex_adi)
     hata_kodu = ctypes.windll.kernel32.GetLastError()
