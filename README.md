@@ -1,4 +1,4 @@
-##⏱️ Zamanlayıcı Sistemi (zamanlayici-sistemi)
+## ⏱️ Zamanlayıcı Sistemi (zamanlayici-sistemi)
 
 Bilgisayarınızda tıpkı eski internet kafelerdeki gibi çalışan, çocuklar için özel olarak tasarlanmış bir ekran süresi yönetim ve zamanlayıcı uygulamasıdır. 
 
