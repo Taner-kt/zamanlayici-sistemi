@@ -4,8 +4,6 @@ Bilgisayarınızda tıpkı eski internet kafelerdeki gibi çalışan, çocuklar 
 
 Ebeveynlerin çocuklarının bilgisayar başında geçirdiği süreyi kontrol altında tutmasını sağlar. İstediğiniz süreyi ayarlar ve bırakırsınız; uygulama sağ alt köşede (sistem tepsisinde) geriye doğru saymaya başlar. Süre dolduğunda bilgisayarı otomatik olarak güvenli bir şekilde kapatır.
 
----
-
 ## ✨ Özellikler
 
 * **İnternet Kafe Mantığı:** Basit ve anlaşılır süre tabanlı çalışma sistemi.
@@ -18,9 +16,8 @@ Ebeveynlerin çocuklarının bilgisayar başında geçirdiği süreyi kontrol al
 
 Projeyi yerel bilgisayarınızda çalıştırmak için [Buraya](https://github.com/Taner-kt/zamanlayici-sistemi/releases/download/v1.0.0/timer.exe) tıklayarak indirebilirsiniz!
 
-### 1. Gereksinimler
+### Kod Kullanarak Çalıştırma
 
-Bilgisayarınızda **Python 3.8+** sürümünün yüklü olduğundan emin olun.
-
-`pip install pystray pillow pyinstaller` kodu ile harici kütüphaneleri ekleyin.
-`python -m PyInstaller --noconsole --onefile --icon=logo.ico --add-data "logo.ico;." app.py` ile .exe oluşturabilirsiniz.
+* Bilgisayarınızda **Python 3.8+** sürümünün yüklü olduğundan emin olun.
+* `pip install pystray pillow pyinstaller` kodu ile harici kütüphaneleri ekleyin.
+* `python -m PyInstaller --noconsole --onefile --icon=logo.ico --add-data "logo.ico;." app.py` ile .exe oluşturabilirsiniz.
