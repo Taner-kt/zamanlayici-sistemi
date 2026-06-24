@@ -181,7 +181,7 @@ class ZamanlayiciUygulamasi:
     def bilgisayari_kapat(self):
         if self.sayac_penceresi:
             self.sayac_penceresi.destroy()
-        # os.system("shutdown /s /t 0")
+            os.system("shutdown /s /t 0")
         print("Bilgisayar kapanıyor...")
 
     def ikon_olustur(self):
